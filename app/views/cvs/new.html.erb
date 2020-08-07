@@ -1,0 +1,21 @@
+<h1>Cv#create</h1>
+<p>Find me in app/views/cv/create.html.erb</p>
+
+
+
+<%= form_with scope: :cv, url: cvs_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
