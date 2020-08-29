@@ -22,11 +22,25 @@ class CvsController < ApplicationController
 
   def show
     @cv = Cv.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: @cv.name   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   private
 
   def cv_params
-    params.require(:cv).permit(:name, :email)
+    params.require(:cv).permit(:name, :email, 
+      experiences_attributes: [:id,
+                              :organization,
+                              :title,
+                              :start_date,
+                              :end_date,
+                              :_destroy, 
+                              text_lines_attributes: [:id, :content]])
   end
 end
