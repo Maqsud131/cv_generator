@@ -15,6 +15,7 @@
         <td><%= cv.name %></td>
         <td><%= cv.email %></td>
         <td><%= link_to "Show", cv %></td>
+        <td><%= link_to "PDF", cv_path(cv, format: :pdf) %></td>
         <td><%= link_to "Edit", edit_cv_path(cv) %></td>
         <td><%= link_to "Destroy", cv, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>

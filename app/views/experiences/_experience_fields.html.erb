@@ -1,0 +1,23 @@
+  <div class='form-group nested-fields'>
+    <div class="field">
+      <%= f.label :organization %>
+      <%= f.text_field :organization %>
+    </div>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date %>
+    </div>
+    <div class="field">
+      <%= f.label :end_date %>
+      <%= f.date_field :end_date %>
+    </div>
+    <div class='links'>
+      <%= link_to_add_association 'add content', f, :text_lines, partial: 'text_lines/text_line_fields' %>
+    </div>
+    <%= link_to_remove_association "remove experience", f %>
+  </div>
+  

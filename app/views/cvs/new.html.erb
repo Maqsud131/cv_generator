@@ -3,19 +3,26 @@
 
 
 
-<%= form_with scope: :cv, url: cvs_path, local: true do |form| %>
+<%= form_for @cv, url: cvs_path, local: true do |f| %>
   <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
   </p>
+   <div id='experiences'>
+    <%= f.fields_for :experiences do |experience| %>
+      <%= render 'experiences/experience_fields', :f => experience %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add experience', f, :experiences, partial: 'experiences/experience_fields' %>
+    </div>
+  </div>
 
   <p>
-    <%= form.submit %>
+    <%= f.submit %>
   </p>
 <% end %>
-
