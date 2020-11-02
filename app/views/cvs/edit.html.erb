@@ -1,2 +1,41 @@
-<h1>Cv#edit</h1>
-<p>Find me in app/views/cv/edit.html.erb</p>
+<div class="jumbotron text-center">
+  <h2>Edit CV</h2>
+</div>
+
+<div class="container">
+  <p>Fill up the neccessary information</p>
+
+  <%= form_for @cv, url: cvs_path, local: true do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </p>
+  
+    <div id='experiences'>
+      <%= f.fields_for :experiences do |experience| %>
+        <%= render 'experiences/experience_fields', :f => experience %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add experience', f, :experiences, partial: 'experiences/experience_fields' %>
+      </div>
+    </div>
+
+    <div id='educations'>
+      <%= f.fields_for :educations do |education| %>
+        <%= render 'educations/education_fields', :f => education %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add education', f, :educations, partial: 'educations/education_fields' %>
+      </div>
+    </div>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>

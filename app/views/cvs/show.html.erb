@@ -16,7 +16,17 @@
 		</h3>
 		<hr>
 		<% @cv.experiences.each do |experience| %>
-      	<%= render partial: 'experiences/experience', locals: { experience: experience } %>
+      <%= render partial: 'experiences/experience', locals: { experience: experience } %>
+    <% end %>
+
+		<h3>
+			<strong>
+				Education
+			</strong>
+		</h3>
+		<hr>
+		<% @cv.educations.each do |education| %>
+      <%= render partial: 'educations/education', locals: { education: education } %>
     <% end %>
 	</div>
 </div>
