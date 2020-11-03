@@ -5,7 +5,7 @@
 <div class="container">
   <p>Fill up the neccessary information</p>
 
-  <%= form_for @cv, url: cvs_path, local: true do |f| %>
+  <%= form_for @cv, local: true do |f| %>
     <p>
       <%= f.label :name %><br>
       <%= f.text_field :name %>
@@ -34,6 +34,23 @@
       </div>
     </div>
 
+    <div id='achievements'>
+      <%= f.fields_for :achievements do |achievement| %>
+        <%= render 'achievements/achievement_fields', :f => achievement %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add achievement', f, :achievements, partial: 'achievements/achievement_fields' %>
+      </div>
+    </div>
+
+    <div id='skills'>
+      <%= f.fields_for :skills do |skill| %>
+        <%= render 'skills/skill_fields', :f => skill %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add skill', f, :skills, partial: 'skills/skill_fields' %>
+      </div>
+    </div>
     <p>
       <%= f.submit %>
     </p>

@@ -16,9 +16,11 @@ ActiveRecord::Schema.define(version: 2020_08_29_223227) do
   enable_extension "plpgsql"
 
   create_table "achievements", force: :cascade do |t|
+    t.bigint "cv_id"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cv_id"], name: "index_achievements_on_cv_id"
   end
 
   create_table "cvs", force: :cascade do |t|
@@ -53,9 +55,12 @@ ActiveRecord::Schema.define(version: 2020_08_29_223227) do
   end
 
   create_table "skills", force: :cascade do |t|
+    t.bigint "cv_id"
+    t.string "category"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cv_id"], name: "index_skills_on_cv_id"
   end
 
   create_table "text_lines", force: :cascade do |t|

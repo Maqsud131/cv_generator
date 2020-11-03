@@ -21,6 +21,16 @@ class CvsController < ApplicationController
     @cv = Cv.find(params[:id])
   end
 
+  def update
+    @cv = Cv.find(params[:id])
+
+    if @cv.update(cv_params)
+      redirect_to @cv
+    else
+      render 'edit'
+    end
+  end
+
   def show
     @cv = Cv.find(params[:id])
 
@@ -48,6 +58,9 @@ class CvsController < ApplicationController
                               :certificate_title,
                               :start_date,
                               :end_date,
-                              :content])
+                              :content],
+      achievements_attributes: [:id,
+                                :content],
+      skills_attributes: [:id, :category, :content])
   end
 end
