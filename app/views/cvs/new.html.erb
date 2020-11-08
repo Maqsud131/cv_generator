@@ -1,28 +1,56 @@
-<h1>Cv#create</h1>
-<p>Find me in app/views/cv/create.html.erb</p>
+<div class="container">
+  <h3><b>Create Your CV</b></h3>
+  <p>Fill up the neccessary information</p>
 
+  <%= form_for @cv, url: cvs_path, local: true do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
 
-
-<%= form_for @cv, url: cvs_path, local: true do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-   <div id='experiences'>
-    <%= f.fields_for :experiences do |experience| %>
-      <%= render 'experiences/experience_fields', :f => experience %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'add experience', f, :experiences, partial: 'experiences/experience_fields' %>
+    <p>
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </p>
+  
+    <div id='experiences'>
+      <%= f.fields_for :experiences do |experience| %>
+        <%= render 'experiences/experience_fields', :f => experience %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add experience', f, :experiences, partial: 'experiences/experience_fields' %>
+      </div>
     </div>
-  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+    <div id='educations'>
+      <%= f.fields_for :educations do |education| %>
+        <%= render 'educations/education_fields', :f => education %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add education', f, :educations, partial: 'educations/education_fields' %>
+      </div>
+    </div>
+
+    <div id='achievements'>
+      <%= f.fields_for :achievements do |achievement| %>
+        <%= render 'achievements/achievement_fields', :f => achievement %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add achievement', f, :achievements, partial: 'achievements/achievement_fields' %>
+      </div>
+    </div>
+
+    <div id='skills'>
+      <%= f.fields_for :skills do |skill| %>
+        <%= render 'skills/skill_fields', :f => skill %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add skill', f, :skills, partial: 'skills/skill_fields' %>
+      </div>
+    </div>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+</div>

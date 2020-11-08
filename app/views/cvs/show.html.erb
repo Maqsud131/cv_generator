@@ -16,7 +16,41 @@
 		</h3>
 		<hr>
 		<% @cv.experiences.each do |experience| %>
-      	<%= render partial: 'experiences/experience', locals: { experience: experience } %>
+      		<%= render partial: 'experiences/experience', locals: { experience: experience } %>
+    	<% end %>
+
+		<h3>
+			<strong>
+				Education
+			</strong>
+		</h3>
+		<hr>
+		<% @cv.educations.each do |education| %>
+      <%= render partial: 'educations/education', locals: { education: education } %>
     <% end %>
+
+		<h3>
+			<strong>
+				Honors & Achievements
+			</strong>
+		</h3>
+		<hr>
+		<ul>
+			<% @cv.achievements.each do |achievement| %>
+				<li><%= achievement.content %></li>
+			<% end %>
+		</ul>
+
+		<h3>
+			<strong>
+				Skills
+			</strong>
+		</h3>
+		<hr>
+		<ul>
+			<% @cv.skills.each do |skill| %>
+				<li><b><%= skill.category %>:</b> <%= skill.content %></li>
+			<% end %>
+		</ul>
 	</div>
 </div>

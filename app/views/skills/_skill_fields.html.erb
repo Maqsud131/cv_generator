@@ -1,0 +1,15 @@
+ <div class='form-group nested-fields'>
+  <br>
+  <b>Skills #</b>
+  <hr>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <br>
+  <%= link_to_remove_association "remove skill", f %>
+</div>

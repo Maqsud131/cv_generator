@@ -18,6 +18,17 @@ class CvsController < ApplicationController
   end
 
   def edit
+    @cv = Cv.find(params[:id])
+  end
+
+  def update
+    @cv = Cv.find(params[:id])
+
+    if @cv.update(cv_params)
+      redirect_to @cv
+    else
+      render 'edit'
+    end
   end
 
   def show
@@ -41,6 +52,15 @@ class CvsController < ApplicationController
                               :start_date,
                               :end_date,
                               :_destroy, 
-                              text_lines_attributes: [:id, :content]])
+                              text_lines_attributes: [:id, :content]],
+      educations_attributes: [:id,
+                              :institution,
+                              :certificate_title,
+                              :start_date,
+                              :end_date,
+                              :content],
+      achievements_attributes: [:id,
+                                :content],
+      skills_attributes: [:id, :category, :content])
   end
 end

@@ -1,28 +1,35 @@
-<h1>Listing CVs</h1>
- 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
- 
-  <tbody>
-    <% @cvs.each do |cv| %>
-      <tr>
-        <td><%= cv.name %></td>
-        <td><%= cv.email %></td>
-        <td><%= link_to "Show", cv %></td>
-        <td><%= link_to "PDF", cv_path(cv, format: :pdf) %></td>
-        <td><%= link_to "Edit", edit_cv_path(cv) %></td>
-        <td><%= link_to "Destroy", cv, method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
- 
-<br>
- 
-<%= link_to "New cv", new_cv_path %>
+<div class="index">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th colspan="3" style="text-align:center">Option</th>
+              <%# <th colspan="3"></th> %>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <% @cvs.each do |cv| %>
+              <tr>
+                <td><%= cv.name %></td>
+                <td><%= cv.email %></td>
+                <td><%= link_to "Show", cv %></td>
+                <td><%= link_to "PDF", cv_path(cv, format: :pdf) %></td>
+                <td><%= link_to "Edit", edit_cv_path(cv) %></td>
+                <%# <td><%= link_to "Destroy", cv, method: :delete, data: { confirm: "Are you sure?" } </td> %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <br>
+    <%= link_to "New CV", new_cv_path, class: "btn btn-primary" %>
+  </div>
+  
+</div>
