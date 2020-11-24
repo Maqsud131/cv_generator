@@ -1,0 +1,23 @@
+<div class='form-group nested-fields'>
+<br>
+<b>Projects #</b>
+<hr>
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+<div class="field">
+  <%= f.label :content %><br>
+  <%= f.text_field :content %>
+</div>
+<div class="field">
+  <%= f.label :tech_stack %><br>
+  <%= f.text_field :tech_stack %>
+</div>
+<div class="field">
+  <%= f.label :link %><br>
+  <%= f.text_field :link %>
+</div>
+<br>
+<%= link_to_remove_association "remove project", f %>
+</div>

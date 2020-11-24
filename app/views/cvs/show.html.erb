@@ -26,8 +26,8 @@
 		</h3>
 		<hr>
 		<% @cv.educations.each do |education| %>
-      <%= render partial: 'educations/education', locals: { education: education } %>
-    <% end %>
+      		<%= render partial: 'educations/education', locals: { education: education } %>
+    	<% end %>
 
 		<h3>
 			<strong>
@@ -39,6 +39,18 @@
 			<% @cv.achievements.each do |achievement| %>
 				<li><%= achievement.content %></li>
 			<% end %>
+		</ul>
+
+		<h3>
+			<strong>
+				Projects
+			</strong>
+		</h3>
+		<hr>
+		<ul>
+		<% @cv.projects.each do |project| %>
+			<li><%= render partial: 'projects/project', locals: { project: project } %></li>
+		<% end %>
 		</ul>
 
 		<h3>
