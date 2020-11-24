@@ -61,6 +61,7 @@ class CvsController < ApplicationController
                               :content],
       achievements_attributes: [:id,
                                 :content],
-      skills_attributes: [:id, :category, :content])
+      skills_attributes: [:id, :category, :content],
+      projects_attributes: [:id, :title, :content, :tech_stack, :link])
   end
 end

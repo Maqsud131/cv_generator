@@ -43,6 +43,18 @@
 
 		<h3>
 			<strong>
+				Projects
+			</strong>
+		</h3>
+		<hr>
+		<ul>
+		<% @cv.projects.each do |project| %>
+			<li><%= render partial: 'projects/project', locals: { project: project } %></li>
+		<% end %>
+		</ul>
+
+		<h3>
+			<strong>
 				Skills
 			</strong>
 		</h3>

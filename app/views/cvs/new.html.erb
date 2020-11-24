@@ -49,6 +49,15 @@
       </div>
     </div>
 
+    <div id='projects'>
+      <%= f.fields_for :projects do |project| %>
+        <%= render 'projects/project_fields', :f => project %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add project', f, :projects, partial: 'projects/project_fields' %>
+      </div>
+    </div>
+
     <p>
       <%= f.submit %>
     </p>
