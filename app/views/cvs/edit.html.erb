@@ -1,8 +1,7 @@
-<div class="jumbotron text-center">
-  <h2>Edit CV</h2>
-</div>
-
 <div class="container">
+  <%= link_to "Back", cvs_path, class: "btn btn-primary" %>
+  <hr>
+  <h3><b>Edit Your CV</b></h3>
   <p>Fill up the neccessary information</p>
 
   <%= form_for @cv, local: true do |f| %>

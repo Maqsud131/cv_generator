@@ -42,6 +42,13 @@ class CvsController < ApplicationController
     end
   end
 
+  def destroy
+    @cv = Cv.find(params[:id])
+    @cv.destroy
+
+    redirect_to cvs_path
+  end
+
   private
 
   def cv_params
@@ -52,16 +59,16 @@ class CvsController < ApplicationController
                               :start_date,
                               :end_date,
                               :_destroy, 
-                              text_lines_attributes: [:id, :content]],
+                              text_lines_attributes: [:id, :content, :_destroy]],
       educations_attributes: [:id,
                               :institution,
                               :certificate_title,
                               :start_date,
                               :end_date,
-                              :content],
-      achievements_attributes: [:id,
-                                :content],
-      skills_attributes: [:id, :category, :content],
-      projects_attributes: [:id, :title, :content, :tech_stack, :link])
+                              :content,
+                              :_destroy],
+      achievements_attributes: [:id, :content, :_destroy],
+      skills_attributes: [:id, :category, :content, :_destroy],
+      projects_attributes: [:id, :title, :content, :tech_stack, :link, :_destroy])
   end
 end
