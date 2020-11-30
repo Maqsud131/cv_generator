@@ -22,9 +22,14 @@
     <%= f.date_field :end_date %>
   </div>
   <br>
-  <div class='links'>
-    <%= link_to_add_association 'add content', f, :text_lines, partial: 'text_lines/text_line_fields' %>
-  </div>
+  <div id='text_lines'>
+      <%= f.fields_for :text_lines do |text_line| %>
+        <%= render 'text_lines/text_line_fields', :f => text_line %>
+      <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add responsibilities or achievements', f, :text_lines, partial: 'text_lines/text_line_fields' %>
+    </div>
+  <div>
   <br>
   <%= link_to_remove_association "remove experience", f %>
 </div>
