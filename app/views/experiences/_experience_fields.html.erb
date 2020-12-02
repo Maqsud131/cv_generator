@@ -1,35 +1,54 @@
-<div class='form-group nested-fields'>
+<div class="nested-fields">
   <br>
   <b>Experience #</b>
   <hr>
-  <div class="field">
-    <%= f.label :organization %><br>
-    <%= f.text_field :organization %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_field :start_date %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_field :end_date %>
-  </div>
-  <br>
-  <div id='text_lines'>
-      <%= f.fields_for :text_lines do |text_line| %>
-        <%= render 'text_lines/text_line_fields', :f => text_line %>
-      <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'add responsibilities or achievements', f, :text_lines, partial: 'text_lines/text_line_fields' %>
+
+  <div class="form-group">
+    <%= f.label :organization, class: "control-label col-sm-2" %>
+    <div class="col-sm-4">
+      <%= f.text_field :organization, class: "form-control" %>
     </div>
-  <div>
+  </div>
+
   <br>
-  <%= link_to_remove_association "remove experience", f %>
+
+  <div class="form-group">
+    <%= f.label :title, class: "control-label col-sm-2" %>
+    <div class="col-sm-4">
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    <%= f.label :start_date, class: "control-label col-sm-2" %>
+    <div class="col-sm-2">
+      <%= f.date_field :start_date, class: "form-control" %>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="form-group">
+    <%= f.label :end_date, class: "control-label col-sm-2" %>
+    <div class="col-sm-2">
+      <%= f.date_field :end_date, class: "form-control" %>
+    </div>
+  </div>
+
+  <br>
+
+  <div id='text_lines'>
+    <%= f.fields_for :text_lines do |text_line| %>
+      <%= render 'text_lines/text_line_fields', f: text_line %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'Add Responsibilities or Achievements', f, :text_lines, partial: 'text_lines/text_line_fields', class: "btn btn-default" %>
+    </div>
+  </div>
+
+  <br>
+  <%= link_to_remove_association "Remove Experience", f, class: "btn btn-danger" %>
+  <hr>
 </div>
