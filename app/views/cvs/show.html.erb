@@ -5,65 +5,79 @@
 				<%=@cv.name %>
 			</strong>
 		</h1>
-		<p>
-			<%= @cv.email %>
-		<p>
-		
-		<h3>
-			<strong>
-				Experience
-			</strong>
-		</h3>
-		<hr>
-		<% @cv.experiences.each do |experience| %>
-      		<%= render partial: 'experiences/experience', locals: { experience: experience } %>
-    	<% end %>
 
-		<h3>
-			<strong>
-				Education
-			</strong>
-		</h3>
-		<hr>
-		<% @cv.educations.each do |education| %>
-      		<%= render partial: 'educations/education', locals: { education: education } %>
-    	<% end %>
-
-		<h3>
-			<strong>
-				Honors & Achievements
-			</strong>
-		</h3>
-		<hr>
-		<ul>
-			<% @cv.achievements.each do |achievement| %>
-				<li><%= achievement.content %></li>
-			<% end %>
-		</ul>
-
-		<h3>
-			<strong>
-				Projects
-			</strong>
-		</h3>
-		<hr>
-		<ul>
-		<% @cv.projects.each do |project| %>
-			<li><%= render partial: 'projects/project', locals: { project: project } %></li>
+		<% if @cv.email.present? %>
+			<p>
+				<%= @cv.email %>
+			<p>
 		<% end %>
-		</ul>
-
-		<h3>
-			<strong>
-				Skills
-			</strong>
-		</h3>
-		<hr>
-		<ul>
-			<% @cv.skills.each do |skill| %>
-				<li><b><%= skill.category %>:</b> <%= skill.content %></li>
+		
+		<% if @cv.experiences.present? %>
+			<h3>
+				<strong>
+					Experience
+				</strong>
+			</h3>
+			<hr>
+			<% @cv.experiences.each do |experience| %>
+				<%= render partial: 'experiences/experience', locals: { experience: experience } %>
 			<% end %>
-		</ul>
+		<% end %>
+		
+		<% if @cv.educations.present? %>
+			<h3>
+				<strong>
+					Education
+				</strong>
+			</h3>
+			<hr>
+			<% @cv.educations.each do |education| %>
+				<%= render partial: 'educations/education', locals: { education: education } %>
+			<% end %>
+		<% end %>
+
+		<% if @cv.achievements.present? %>
+			<h3>
+				<strong>
+					Honors & Achievements
+				</strong>
+			</h3>
+			<hr>
+			<ul>
+				<% @cv.achievements.each do |achievement| %>
+					<li><%= achievement.content %></li>
+				<% end %>
+			</ul>
+		<% end %>
+
+		<% if @cv.projects.present? %>
+			<h3>
+				<strong>
+					Projects
+				</strong>
+			</h3>
+			<hr>
+			<ul>
+			<% @cv.projects.each do |project| %>
+				<li><%= render partial: 'projects/project', locals: { project: project } %></li>
+			<% end %>
+			</ul>
+		<% end %>
+
+		<% if @cv.skills.present? %>
+			<h3>
+				<strong>
+					Skills
+				</strong>
+			</h3>
+			<hr>
+			<ul>
+				<% @cv.skills.each do |skill| %>
+					<li><b><%= skill.category %>:</b> <%= skill.content %></li>
+				<% end %>
+			</ul>
+		<% end %>
+
 		<hr>
 		<%= link_to "Back", cvs_path, class: "btn btn-primary" %>
 	</div>
