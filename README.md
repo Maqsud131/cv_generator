@@ -1,24 +1,13 @@
-# README
+<h1 align="center">
+  Simple CV Generator
+</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple rails app to create <b>CV</b> and download it's <b>PDF</b> version.
+### Demo
 
-Things you may want to cover:
+[Live Demo](https://simple-cv-generator.herokuapp.com/)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Dependencies
+- Ruby 2.6.3
+- Rail 5.2.3
+- PostgreSQL 12.5

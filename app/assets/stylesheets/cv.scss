@@ -1,8 +1,13 @@
 // Place all the styles related to the CV controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 .page {
 	// border-style: solid;
+	font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: calc(800px - (30px * 2));
@@ -12,10 +17,9 @@
 	.header {
 		text-align: center;
 		background-color: gainsboro;
-	}
+	}	
 
 	.cv_list {
-		align-content: center;
 		display: grid;
 		width: 50%;
 		margin-left: auto;
