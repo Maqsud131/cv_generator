@@ -9,5 +9,5 @@ A simple rails app to create <b>CV</b> and download it's <b>PDF</b> version.
 
 ### Dependencies
 - Ruby 2.6.3
-- Rail 5.2.3
+- Rails 5.2.3
 - PostgreSQL 12.5
